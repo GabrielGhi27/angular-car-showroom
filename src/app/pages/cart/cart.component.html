@@ -1,0 +1,74 @@
+<div class="cart-container">
+  <header class="cart-header">
+    <h1>Your Auto Cart</h1>
+  </header>
+
+  <div class="empty-cart" *ngIf="(cartService.cartItems$ | async)?.length === 0">
+    <div class="empty-icon-wrapper">
+      <i class="fas fa-shopping-cart empty-icon"></i>
+    </div>
+    <h2>Your cart is empty</h2>
+    <p>You haven't selected any car! Discover our cars!</p>
+    <button routerLink="/cars" class="btn-primary">Explore our world</button>
+  </div>
+
+  <div class="cart-content" *ngIf="(cartService.cartItems$ | async) as cartItems">
+    <div class="cart-items-list" *ngIf="cartItems.length > 0">
+
+      <div class="cart-item" *ngFor="let car of cartItems">
+        <img [src]="car.image" class="item-image fade-in" loading="lazy" alt="{{ car.title }}"/>
+
+        <div class="item-details">
+          <h3>{{ car.title }}</h3>
+          <p class="item-specs">
+            <i class="fas fa-calendar-alt"></i> {{ car.specifications.modelYear }} &nbsp;•&nbsp; 
+            <i class="fas fa-bolt"></i> {{ car.specifications.power }}
+          </p>
+        </div>
+
+        <div class="item-actions">
+          <span class="item-price">{{ car.price | currency:'USD':'symbol':'1.0-0' }}</span>
+          <button class="btn-remove" (click)="cartService.removeFromCart(car)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <button class="btn-checkout" (click)="onCheckout()">
+          Proceed to checkout <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="isOrderComplete">
+  <div class="modal-card">
+    <div class="success-icon-container">
+      <i class="fas fa-check-circle"></i>
+    </div>
+
+    <h2>Transaction Successful!</h2>
+
+    <p class="summary-text">
+      A payment of <span class="price-highlight">{{ totalTransactionAmount | currency:'USD':'symbol':'1.0-0' }}</span> was processed successfully.
+    </p>
+
+    <div class="receipt-details">
+      <p class="receipt-label">Vehicle Summary</p>
+      <ul class="purchased-list">
+        <li *ngFor="let item of finalizedItems" class="purchased-item">
+          <span class="vehicle-name">{{ item.title }}</span>
+          <div class="badge-container" *ngIf="getSelectedOptions(item.options).length > 0">
+            <span class="option-badge" *ngFor="let opt of getSelectedOptions(item.options)">
+              {{ formatOptionLabel(opt) }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn-confirm" (click)="finalizeOrder()">Întoarce-te la Showroom</button>
+  </div>
+</div>

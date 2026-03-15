@@ -1,0 +1,227 @@
+.car-item {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #f1f5f9;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.car-item:hover {
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+  transform: translateY(-10px);
+  border-color: #bfdbfe;
+}
+
+.car-image-container {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  display: block;
+}
+
+.car-item:hover .car-image {
+  transform: scale(1.05);
+}
+
+.favorite-heart {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+  color: #94a3b8;
+  z-index: 2;
+}
+
+.favorite-heart:hover {
+  transform: scale(1.1);
+  background: #fff;
+  color: #ef4444;
+}
+
+.favorite-heart.active {
+  color: #ef4444;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}
+
+.car-specs-column {
+  padding: 25px 25px 15px 25px;
+  flex-grow: 1;
+}
+
+.car-title {
+  font-size: 1.7rem;
+  margin: 0 0 20px 0;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.car-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.spec-icon {
+  color: #3b82f6; 
+  margin-right: 12px;
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+}
+
+.spec-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.spec-engine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.car-description {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.car-actions-column {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  padding: 25px;
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.price {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #3b82f6; 
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.price-breakdown {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.options-section {
+  margin-bottom: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.options-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.option-price {
+  font-weight: 700;
+  color: #10b981;
+  font-size: 0.9rem;
+}
+
+.car-actions {
+  margin-top: auto;
+  width: 100%;
+}
+
+::ng-deep app-button button {
+  width: 100%;
+  justify-content: center;
+  padding: 16px 20px !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+::ng-deep app-button button:hover {
+  box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4) !important;
+  transform: translateY(-3px) !important;
+}
+
+.floating-element {
+  transform: translateZ(30px);
+  transition: transform 0.1s ease-out;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+}

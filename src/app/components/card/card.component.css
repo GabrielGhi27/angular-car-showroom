@@ -1,0 +1,94 @@
+.card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f1f5f9;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+  border-color: #bfdbfe;
+}
+
+/* Containerul de text crește ca să împingă butonul în jos */
+.card-content {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.card-actions {
+  margin-top: auto; /* Forțează butonul să stea la baza cardului */
+}
+
+/* --- Cardul Central Evidențiat (Featured) --- */
+.card.featured {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+  border: none;
+  transform: scale(1.0); /* Îl facem o idee mai mare ca să iasă în evidență */
+}
+
+.card.featured h3 {
+  color: #ffffff;
+}
+
+.card.featured p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card.featured:hover {
+  transform: scale(1.03) translateY(-8px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+}
+
+/* Pe telefoane anulăm mărirea cardului central ca să arate bine pe verticală */
+@media (max-width: 968px) {
+  .card.featured {
+    transform: scale(1);
+  }
+  .card.featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.card-image-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05); /* Efect fin de zoom pe imagine la trecerea cu mouse-ul */
+}

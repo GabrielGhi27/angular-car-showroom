@@ -1,0 +1,26 @@
+<div class="card" [class.featured]="cardVariant() === cardVariantEnum.Featured">
+  
+  <div class="card-content">
+    <h3>{{ title() }}</h3>
+    
+    @if(imgUrl()) {
+      <div class="card-image-wrapper">
+        <img [src]="imgUrl()" alt="Card media" class="card-image fade-in" loading="lazy"/>
+      </div>
+    }
+
+    <p>{{ content() }}</p>
+  </div>
+
+  @if(showButton()){
+    <div class="card-actions">
+      <app-button
+        [buttonLabel]="buttonLabel()"
+        [buttonIcon]="buttonIcon()"
+        [buttonType]="buttonType()"
+        (buttonClicked)="onCardButtonClick()"
+      />
+    </div>
+  }
+
+</div>

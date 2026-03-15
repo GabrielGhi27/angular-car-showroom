@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="nav-container">
+
+    <a routerLink="/" class="brand-area">
+  <div class="brand-text">
+    <span class="brand-title">GABI'S</span> <span class="brand-subtitle">MOTORS</span> </div>
+  <span class="brand-signature">by Gabriel & MHP Team</span> </a>
+
+    <div class="nav-right-side">
+
+      <div class="nav-links" [class.active]="isMenuOpen">
+        <a routerLink="/home" routerLinkActive="active-link" (click)="closeMenu()">Home</a>
+        <a routerLink="/news" routerLinkActive="active-link" (click)="closeMenu()">News</a>
+        <a routerLink="/cars" routerLinkActive="active-link" (click)="closeMenu()">Cars</a>
+        <a routerLink="/reviews" routerLinkActive="active-link" (click)="closeMenu()">Reviews</a>
+      </div>
+
+      <a routerLink="/cart" class="cart-icon" (click)="closeMenu()">
+  <i class="fas fa-shopping-cart"></i>
+
+  @if (cartCount() > 0) {
+    <span class="cart-badge">{{ cartCount() }}</span>
+  }
+</a>
+
+      <button class="hamburger-btn" (click)="toggleMenu()">
+        <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+      </button>
+
+    </div>
+
+  </div>
+</nav>

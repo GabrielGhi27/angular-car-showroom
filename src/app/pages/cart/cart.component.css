@@ -1,0 +1,348 @@
+.cart-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  min-height: 60vh;
+}
+
+.cart-header h1 {
+  font-weight: 800;
+  color: #1e3a8a; /* Albastrul principal */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* --- Empty Cart State --- */
+.empty-cart {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px dashed #cbd5e1;
+}
+
+.empty-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: #94a3b8;
+}
+
+.empty-cart h2 {
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.empty-cart .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  color: white;
+  padding: 14px 35px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.empty-cart .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Cart Items --- */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+  border-color: #bfdbfe;
+}
+
+.item-image {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details h3 {
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.item-specs {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.item-specs i {
+  color: #3b82f6;
+}
+
+.item-actions {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.item-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3b82f6;
+  display: block;
+}
+
+.btn-remove {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-remove:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
+
+/* --- Checkout System --- */
+.cart-summary {
+  margin-top: 40px;
+  text-align: right;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+}
+
+.btn-checkout {
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  color: #ffffff;
+  padding: 16px 50px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-checkout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* --- Transaction Modal (Success State) --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.success-icon-container {
+  font-size: 5rem;
+  color: #10b981; /* Verde modern */
+  margin-bottom: 20px;
+}
+
+.modal-card h2 {
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.summary-text {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.price-highlight {
+  color: #3b82f6;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.receipt-details {
+  background-color: #f8fafc;
+  padding: 25px;
+  border-radius: 16px;
+  margin: 30px 0;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+.receipt-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.purchased-list {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.purchased-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.purchased-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.vehicle-name {
+  font-weight: 700;
+  color: #1e293b;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-badge {
+  background: #dbeafe;
+  color: #1e3a8a;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.btn-confirm {
+  background: #10b981;
+  color: #ffffff;
+  padding: 16px 40px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 25px 15px;
+  }
+  
+  .item-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .item-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .cart-summary {
+    text-align: center;
+  }
+  
+  .btn-checkout {
+    width: 100%;
+    justify-content: center;
+  }
+}

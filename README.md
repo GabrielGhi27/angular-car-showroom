@@ -1,6 +1,5 @@
-# Angular Workshop - Student Reference Guide
+# Angular Workshop
 
-🔗 **Live Demo:** [https://oti404.github.io/car-world/home](https://oti404.github.io/car-world/home)
 
 ## 📚 Introduction
 
